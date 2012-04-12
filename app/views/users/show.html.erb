@@ -1,4 +1,18 @@
 <h1><%= @user.first_name %> <%= @user.last_name %></h1>
 
-<%= link_to "Edit", edit_user_path(@user) %>
+<% @user.addresses.each do |addr| %>
+  <p>
+    <%= addr.street %>,
+    <%= addr.city %>,
+    <%= addr.state %>,
+    <%= addr.zip %>
+    <%= link_to "Edit Address", edit_address_path(addr) %>
+    <%= link_to "Delete Address", address_path(addr), method: 'delete' %>
+  </p>
+<% end %>
+
+
+<%= link_to "Edit User", edit_user_path(@user) %>
+<%= link_to "Delete", user_path(@user), method: 'delete' %>
+<%= link_to 'New Address', new_address_path(user_id: @user.id) %>
 <%= link_to 'Back to all users', users_path %>

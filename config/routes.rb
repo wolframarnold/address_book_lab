@@ -1,5 +1,6 @@
 AddressBook::Application.routes.draw do
   resources :users
+  resources :addresses, only: [:new, :edit, :create, :update, :destroy]
   #get "users/index"
 
   # The priority is based upon order of creation:

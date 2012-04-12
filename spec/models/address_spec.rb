@@ -4,7 +4,7 @@ describe Address do
   describe 'Validations' do
     subject { FactoryGirl.build(:address) }
 
-    %w(street city state zip user).each do |attr|
+    %w(street city state zip).each do |attr|
       it "requires #{attr}" do
         subject.send("#{attr}=", nil)
         should_not be_valid

@@ -23,6 +23,7 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'thin'
 
 group :test, :development do
   gem 'factory_girl_rails'

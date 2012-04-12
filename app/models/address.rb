@@ -1,8 +1,10 @@
 class Address < ActiveRecord::Base
-  belongs_to :user
-  attr_accessible :city, :state, :street, :zip, :user
+  US_STATES = Carmen.states.map { |st| st.last }
 
-  validates :street, :state, :city, :zip, :user, presence: true
-  validates :state, inclusion: Carmen.states.map{|st|st.last}
+  belongs_to :user
+  attr_accessible :city, :state, :street, :zip, :user, :user_id
+
+  validates :street, :state, :city, :zip, :user_id, presence: true
+  validates :state, inclusion: US_STATES
   validates :zip, :format => /^\d+$/
 end
