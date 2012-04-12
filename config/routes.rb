@@ -3,6 +3,8 @@ AddressBook::Application.routes.draw do
   resources :addresses, only: [:new, :edit, :create, :update, :destroy]
   #get "users/index"
 
+  root to: "users#index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
